@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - Print output starting with 0
+ * main - Print output using printf and
+ * end with a new line
  *
  * Return: Always 0
  */
