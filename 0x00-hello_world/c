@@ -671,9 +671,7 @@ extern int putw (int __w, FILE *__stream);
 
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      ;
-# 638 "/usr/include/stdio.h" 3 4
-extern char *gets (char *__s) __attribute__ ((__deprecated__));
-
+# 640 "/usr/include/stdio.h" 3 4
 
 # 665 "/usr/include/stdio.h" 3 4
 extern __ssize_t __getdelim (char **__restrict __lineptr,
