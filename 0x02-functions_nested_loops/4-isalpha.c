@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _isalpha(int c) - check if a char is an alphabet
+ * _isalpha - check if a char is an alphabet
  * @c: our char which we want to test
  *
- * return: 1 if alphabet else 0
+ * Return: 1 if alphabet char 0 if not
  */
 int _isalpha(int c)
 {
@@ -13,5 +13,5 @@ int _isalpha(int c)
 	int u = ((c >= 'A') && (c <= 'Z'));
 	int v = (l || u);
 
-        return (v);
+	return (v);
 }
