@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_numbers - print 0-9 avoid 2,4
+ * print_most_numbers - print 0-9 avoid 2,4
  */
 void print_most_numbers(void)
 {
@@ -9,7 +9,7 @@ void print_most_numbers(void)
 
 	while (c <= '9')
 	{
-		if( !(c == '2' || c == '4') )
+		if (!(c == '2' || c == '4'))
 		{
 			_putchar(c);
 		}
