@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_min: print HH:00 to HH:59
+ * print_min - print HH:00 to HH:59
  * @h: values for HH in numbers
  *
  * Return: void
@@ -14,7 +14,7 @@ void print_min(char h[])
 	while (m[0] <= '5')
 	{
 		m[1] = '0';
-		while(m[1] <= '9')
+		while (m[1] <= '9')
 		{
 			_putchar(h[0]);
 			_putchar(h[1]);
@@ -29,7 +29,7 @@ void print_min(char h[])
 }
 
 /**
- * jack_bauer: print HH:MM for a whole day
+ * jack_bauer - print HH:MM for a whole day
  *
  * Return: 0 Always
  */
@@ -41,11 +41,25 @@ void jack_bauer(void)
 	while (h[0] <= '2')
 	{
 		h[1] = '0';
-		while(h[1] <= '3')
+		/* avoid going beyond 24 hrs*/
+		if (h[0] == '2')
 		{
-			/* for each hour, use this fxn */
-			print_min(h);
-			h[1] = h[1] + 1;
+			while (h[1] <= '3')
+			{
+				/* for each hour, use this fxn */
+				print_min(h);
+				h[1] = h[1] + 1;
+			}
+		}
+		else
+		{
+			/* 00 - 19 hrs are not affected*/
+			while (h[1] <= '9')
+			{
+				/* for each hour, use this fxn */
+				print_min(h);
+				h[1] = h[1] + 1;
+			}
 		}
 		h[0] = h[0] + 1;
 	}
