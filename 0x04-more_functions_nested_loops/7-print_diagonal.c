@@ -10,14 +10,14 @@ void print_diagonal(int n)
 
 	if (n > 0)
 	{
-		i = 1;
+		i = 0;
 		/**
 		 * ensure n = 0,1 will print empty line
 		 * for the rest ensure the spaces before \ are regulated
 		 */
-		while (i <= n)
+		while (i < n)
 		{
-			if (n > 1)
+			if (n >= 1)
 			{
 				s = 0;
 				while (s < i)
