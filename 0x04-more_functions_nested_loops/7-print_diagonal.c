@@ -8,12 +8,10 @@ void print_diagonal(int n)
 {
 	int i, s;
 
-	i = 1;/* ensure n = 0,1 will print empty line */
-	if (n <= 1)
-	{
-		_putchar('\n');
-	}
-	/* for the rest ensure the spaces before \ are regulated */
+	i = 1;
+	/** ensure n = 0,1 will print empty line 
+	 * for the rest ensure the spaces before \ are regulated 
+	 */
 	while (i <= n)
 	{
 		if (n > 1)
@@ -29,4 +27,6 @@ void print_diagonal(int n)
 		_putchar('\n');
 		i++;
 	}
+	if (n < 1)
+		_putchar('\n');
 }
