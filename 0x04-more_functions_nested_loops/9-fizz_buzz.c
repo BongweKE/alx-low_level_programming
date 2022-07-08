@@ -26,11 +26,12 @@ int main(void)
 		{
 			printf("%d ", i);
 		}
-		i++;
 		if (i < 100)
 		{
 			printf(" ");
 		}
+		i++;
 	}
+	printf("%c", '\n');
 	return (0);
 }
