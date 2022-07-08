@@ -13,8 +13,9 @@ void print_diagonal(int n)
 		_putchar('\n');
 	}
 	i = 1;
-	/** ensure n = 0,1 will print empty line 
-	 * for the rest ensure the spaces before \ are regulated 
+	/**
+	 * ensure n = 0,1 will print empty line
+	 * for the rest ensure the spaces before \ are regulated
 	 */
 	while (i <= n)
 	{
