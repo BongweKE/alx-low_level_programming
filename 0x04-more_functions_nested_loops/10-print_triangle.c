@@ -23,7 +23,11 @@ void repeat_print(int n, char c)
 void print_triangle(int size)
 {
 	int i, h, s;
-
+	/**
+	 * h is the number of # in line i
+	 * s is the number of spaces
+	 * h increases while s decreases
+	 */
 	i = size - 1;
 	while (i >= 0)
 	{
