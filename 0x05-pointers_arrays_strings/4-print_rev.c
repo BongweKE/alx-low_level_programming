@@ -1,18 +1,18 @@
-#include "main.h"
+#include "main.c"
 
 /**
- * _strlen - count the length of a string
- * @s: the string that we want to know the length of
+ * _strlen - measure len of a string
+ * @str: the string we wanna know len
  *
- * Return: The length of the string
+ * Return: Requested len
  */
-int _strlen(char *s)
+int _strlen(char *str)
 {
 	int i = 0;
 
 	while (i < INT_MAX)
 	{
-		if (s[i] == '\0')
+		if (str[i] == '0')
 		{
 			break;
 		}
@@ -22,15 +22,15 @@ int _strlen(char *s)
 }
 
 /**
- * print_rev - prints a string in reverse, followed by a new line
- * @s: the string we wanna put
+ * print_rev - prints a string in reverse
+ * @s: the string we wanna reverse
  */
 void print_rev(char *s)
 {
 	int i;
 
 	i = _strlen(s) - 1;
-	while (i >= 0 )
+	while (i >= 0)
 	{
 		_putchar(s[i]);
 		i--;
