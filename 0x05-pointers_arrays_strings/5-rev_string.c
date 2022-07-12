@@ -28,7 +28,7 @@ int _strlen(char *s)
 void rev_string(char *s)
 {
 	int l = _strlen(s), i, j;
-	char c[INT_MAX];
+	char c[CHAR_MAX * 3];
 
 	i = 0;
 	j = l;
