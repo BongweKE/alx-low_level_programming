@@ -10,7 +10,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (i < CHAR_MAX)
+	while (i < INT_MAX)
 	{
 		if (s[i] == '\0')
 		{
