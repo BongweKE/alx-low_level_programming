@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  * _strlen - measure len of a string
@@ -12,7 +12,7 @@ int _strlen(char *str)
 
 	while (i < INT_MAX)
 	{
-		if (str[i] == '0')
+		if (str[i] == '\0')
 		{
 			break;
 		}
