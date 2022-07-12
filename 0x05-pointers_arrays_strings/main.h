@@ -14,5 +14,8 @@ void puts2(char *str);
 void puts_half(char *str);
 void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
+/* for testing (saved in _putchar) */
+void _memset(char *s, char c, int len);
+
 
 #endif /*MAIN_H */

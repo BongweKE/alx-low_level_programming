@@ -40,7 +40,7 @@ char *_strcpy(char *dest, char *src)
 		i++;
 	}
 	/* fill the rest with terminator */
-	while (i < len)
+	while (i <= len)
 	{
 		dest[i] = '\0';
 		i++;
