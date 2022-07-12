@@ -28,6 +28,7 @@ int _strlen(char *s)
 void rev_string(char *s)
 {
 	int l = _strlen(s), i, j;
+	/* chose thise because INT_MAX prevented compilation */
 	char c[CHAR_MAX * 100];
 
 	i = 0;
