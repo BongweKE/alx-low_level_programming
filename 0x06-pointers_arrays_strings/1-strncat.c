@@ -36,9 +36,9 @@ char *_strncat(char *dest, char *src, int n)
 
 	l_dest = _strlen(dest);
 	i = 0;
-	while (i < n )
+	while (i < n)
 	{
-		if(src[i] == '\0')/* check for need of null terminator */
+		if (src[i] == '\0')/* check for need of null terminator */
 		{
 			dest[l_dest] = '\0';
 			break;
