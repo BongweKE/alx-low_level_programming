@@ -23,6 +23,7 @@ int _strlen(char *s)
 
 /**
  * string_toupper - convert lowercase chars of a string to uppercase
+ * @str: the string we wanna convert part of
  *
  * Return: the resultant uppercase string
  */
@@ -30,6 +31,7 @@ char *string_toupper(char *str)
 {
 	int i = 0;
 	int d = 'a' - 'A';
+
 	while (i < _strlen(str))
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
