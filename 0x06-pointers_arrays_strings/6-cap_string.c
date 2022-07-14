@@ -43,15 +43,21 @@ char cap(char x)
  * space, tabulation, new line, ,, ;, ., !, ?, ", (, ), {, and }
  * @x: the char
  *
- * Return 1 if is a separator 0 if not
+ * Return: 1 if is a separator 0 if not
  */
 int is_sep(char x)
 {
-	char seps[] = /* my separators */
-		{' ', '\t', '\n', ',', ';', '.', '!', '?', '(', ')', '{', '}',
-		 /* add this for the loop's sake */ '\0'};
-
+	/**
+	 * my separators
+	 * they are used to indicate that the next char should be
+	 * capitalized
+	 * add '\0' for the loop's timely termination without counting
+	 */
+	char seps[] = {
+		' ', '\t', '\n', ',', ';', '.', '!', '?', '(', ')', '{', '}',
+		  '\0'};
 	int j = 0;
+
 	while (seps[j] != '\0')
 	{
 		if (x == seps[j])
