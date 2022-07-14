@@ -18,7 +18,7 @@ int _strcmp(char *s1, char *s2)
 	 * until we either find a terminator or find a discrepancy
 	 * in this case, it will be when *s1 is on c and *s2 is on p's address
 	 */
-	while((*s1 != '\0' && *s2 != '\0') && *s1 == *s2)
+	while ((*s1 != '\0' && *s2 != '\0') && *s1 == *s2)
 	{
 		s1++;
 		s2++;
