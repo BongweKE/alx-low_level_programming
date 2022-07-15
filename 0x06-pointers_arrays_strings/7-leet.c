@@ -3,40 +3,29 @@
 /**
  * leet - convert a string into 1337 language
  * Description: Use the following changes
- * a || A = 4
- * e || E = 3
- * o || O = 0
- * t || T = 7
- * l || L = 1
+ * {t, o, l, e, a} == {T, O, L, E, A} == {7, 0, 1, 3, 4}
  * @str: the string
  *
  * Return: the converted string
  */
 char *leet(char *str)
 {
-	int i = 0;
+	int i, j;
+	char l[] = {'t', 'o', 'l', 'e', 'a'};
+	char u[] = {'T', 'O', 'L', 'E', 'A'};
+	char n[] = {'7', '0', '1', '3', '4'};
 
-	while (str[i] != 0)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (str[i] == 'a' || str[i] == 'A')
+		j = 0;
+		while (j < 5)
 		{
-			str[i] = '4';
-		}
-		else if (str[i] == 'e' || str[i] == 'E')
-		{
-			str[i] = '3';
-		}
-		else if (str[i] == 'o' || str[i] == 'O')
-		{
-			str[i] = '0';
-		}
-		else if (str[i] == 't' || str[i] == 'T')
-		{
-			str[i] = '7';
-		}
-		else if (str[i] == 'l' || str[i] == 'L')
-		{
-			str[i] = '1';
+			if (str[i] == l[j] || str[i] == u[j])
+			{
+				str[i] = n[j];
+			}
+			j++;
 		}
 		i++;
 	}
