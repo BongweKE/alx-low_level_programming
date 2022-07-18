@@ -11,7 +11,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int i, j;
-	char *r = s;
+	char *r = NULL;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -31,7 +31,6 @@ char *_strpbrk(char *s, char *accept)
 		/* not a match, check next char */
 		i++;
 	}
-	r = &s[i];
 	/* no match found, return pointer as initialized */
 	return (r);
 }
