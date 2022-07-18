@@ -31,6 +31,7 @@ char *_strpbrk(char *s, char *accept)
 		/* not a match, check next char */
 		i++;
 	}
+	r = &s[i];
 	/* no match found, return pointer as initialized */
 	return (r);
 }
