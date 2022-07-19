@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- *
+ * print_chessboard - print an 8 x 8 chessboard
+ * @a: array[8][8] of current chessboard values
  */
 void print_chessboard(char (*a)[8])
 {
