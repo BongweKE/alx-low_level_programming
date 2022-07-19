@@ -10,17 +10,22 @@
  */
 char *_strchr(char *s, char c)
 {
-	char *p = NULL;
 	int i = 0;
 
-	while (s)/* terminate at the end of the string */
+	while (s[i] != '\0')/* terminate at the end of the string */
 	{
 		if (s[i] == c)
 		{
-			p = &s[i];
-			return(p);
+			return (&s[i]);
 		}
 		i++;
 	}
-	return (NULL);
+	if (s[i] == c)
+	{
+		return (&s[i]);
+	}
+	else
+	{
+		return (NULL);
+	}
 }

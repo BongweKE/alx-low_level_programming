@@ -11,7 +11,8 @@ int main(void)
 	char *s = "0hello World";
 	char *f;
 
-	f = _strchr(s, 'e');
+	f = _strchr(s, '\0');
+
 	if (f != NULL)
 	{
 		printf("%s\n", f);
