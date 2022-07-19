@@ -1,5 +1,5 @@
 #include "main.h"
-#include <string.h>
+#include <stdio.h>
 
 /**
  * main - check the code
@@ -8,11 +8,11 @@
  */
 int main(void)
 {
-	char *s = "hello, wordlo _wOrld_ this extra";
-	char *f = "world";
+	char *s = "hello, world";
+	char *f = "worl";
 	char *t;
 
-	t = strstr(s, f);
+	t = _strstr(s, f);
 	printf("%s", t);
 	printf("\n");
 	return (0);
