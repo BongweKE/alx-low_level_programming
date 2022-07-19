@@ -9,6 +9,7 @@
 void print_diagsums(int *a, int size)
 {
 	int i, n, p_sum, s_sum, *temp;
+
 	temp = a + size - 1; /* use this for the secondary diagonal */
 	/**
 	 * due to the unique way of storage of multidimensional arrays,
