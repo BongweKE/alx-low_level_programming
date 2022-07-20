@@ -48,5 +48,10 @@ void _print_rev_recursion(char *s)
 {
 	int l = _strlen(s);
 
+	if (l < 1)
+	{
+		_putchar('\n');
+		return;
+	}
 	print_n_times(&s[l - 1], l - 1);
 }
