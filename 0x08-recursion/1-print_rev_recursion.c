@@ -50,7 +50,6 @@ void _print_rev_recursion(char *s)
 
 	if (l < 1)
 	{
-		_putchar('\n');
 		return;
 	}
 	print_n_times(&s[l - 1], l - 1);
