@@ -1,27 +1,52 @@
 #include "main.h"
 
-
 /**
  * recursor - help to find the square root of a number usisng recursion
  * @n: the number which we wanna find it's square root
- * @r: a potential root to test out (start with 1)
+ * @r: a potential root to test out
  *
- * Return: the approximate root or -1
+ * Return: the root or -1 for those which do not have a natural root
  */
-int sqrt_aprox_recursor(int n, int r)
+int recursor(int n, int r)
 {
-	/* here's where aprox comes in */
-	if ((n <= (r * r)) && (n >= ((r - 1) * (r - 1))))
+	if (n == (r * r))
 	{
 		return (r);
 	}
 	else if (n > (r * r))
 	{
-		return (sqrt_aprox_recursor(n, (r + 1)));
+		return (recursor(n, (r + 1)));
 	}
 	else
 	{
 		return (-1);
+	}
+}
+
+/**
+ * _sqrt - call a helper function for numbers which we do not
+ * know the root of and which are positive
+ * @n: the number which we wanna find the root of
+ *
+ * Return: the root or -1 for errors
+ */
+int _sqrt(int n)
+{
+	if (n == 0)
+	{
+		return (0);
+	}
+	else if (n == 1)
+	{
+		return (1);
+	}
+	else if (n < 0)
+	{
+		return (-1);
+	}
+	else
+	{
+		return (recursor(n, 1));
 	}
 }
 
@@ -34,21 +59,16 @@ int sqrt_aprox_recursor(int n, int r)
  * PS: Only works for prime numbers from 3 onwards
  * two has to be filtered before calling the function
  */
-int get_primeness(int n, int t, int max)
+int get_primeness(int n, int i, int max)
 {
-	/**
-	 * remove 1, 0, even numbers, multiples & numbers greater
-	 * than root of n */
-	if ((n % t == 0) || (n <= 1) || (t > max))
+	if ((n % i == 0 && i <= max) || n < 0 || n == 1)
 	{
 		return (0);
 	}
-	/* move to the next if we have not found a multiple or reached limit */
-	else if ((n % t != 0) && (t <= max))
+	else if (n % i != 0 && i <= max)
 	{
-		return (get_primeness(n, t + 2, max));
+		return (get_primeness(n, i + 1, max));
 	}
-	/* is prime if we have reached limit without finding multiple */
 	else
 	{
 		return (1);
@@ -65,12 +85,18 @@ int is_prime_number(int n)
 {
 	int r;/* to calculate max */
 
+	r = _sqrt(n);
+	/* cases where the number doesnt have a root, max changes */
+	if (r < 0)
+	{
+		r = n / 2;
+	}
+
 	/* since get_primeness cant find 2 */
 	if (n == 2)
 	{
 		return (1);
 	}
 
-	r = n/2;
 	return (get_primeness(n, 2, r));
 }
