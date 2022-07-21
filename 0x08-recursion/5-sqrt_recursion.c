@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * recursor - help to find the square root of a number usisng recursion
  * @n: the number which we wanna find it's square root
@@ -23,7 +22,6 @@ int recursor(int n, int r)
 		return (-1);
 	}
 }
-
 
 /**
  * _sqrt_recursion - call a helper function for numbers which we do not
