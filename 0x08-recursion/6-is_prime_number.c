@@ -53,7 +53,8 @@ int _sqrt(int n)
 /**
  * get_primeness - calculate likelihood of number being prime
  * @n: the number we want to know if it's prime
- * @t: int used to increment & test for even numbers and divisor/ multiple
+ * @i: int used to increment & test for even numbers and divisor/ multiple
+ * @max: the root or halfpoint, used to test for limit of finding divisors
  *
  * Return: 1 if prime, 0 if not
  * PS: Only works for prime numbers from 3 onwards
