@@ -8,5 +8,6 @@
  */
 int is_palindrome(char *s)
 {
+	s++;
 	return (0);
 }
