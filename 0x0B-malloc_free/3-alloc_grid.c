@@ -11,9 +11,9 @@ int **alloc_grid(int width, int height)
 {
 	int i, j, **p, *a;
 
-	if (width == 0 || height == 0)
+	/* improbable width or height */
+	if (width <= 0 || height <= 0)
 	{
-		printf("Hakuna kitu ka hio\n");
 		return (NULL);
 	}
 	a = malloc(width * sizeof(int));
