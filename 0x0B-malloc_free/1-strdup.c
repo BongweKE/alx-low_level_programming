@@ -16,7 +16,7 @@ char *_strdup(char *str)
 		printf("Given string is NULL\n");
 		return (NULL);
 	}
-	p = malloc(sizeof(str));
+	p = malloc(sizeof(str) + 1);
 	if (p == NULL)
 	{
 		printf("Can't make string of size %lu\n", sizeof(str));
