@@ -1,6 +1,26 @@
 #include "main.h"
 
 /**
+ * free_grid - free allocated memory in a 2d matrix
+ * @grid: the 2D matrix
+ * @height: the number of sub arrays in the 2D arrays
+ *
+ * Return: Void
+ */
+void free_g(int **grid, int height)
+{
+	int i;
+
+	i = 0;
+	while (i < height)
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
+}
+
+/**
  * alloc_grid - allocate memory to a 2d matrix
  * @width: the width of the matrix
  * @height: the number of sub-arrays within the matrix
@@ -20,7 +40,7 @@ int **alloc_grid(int width, int height)
 	p = malloc(height * width * sizeof(int));
 	if (p == NULL)
 	{
-		free(p);
+		free_g(p, height);
 		return (NULL);
 	}
 
@@ -28,6 +48,11 @@ int **alloc_grid(int width, int height)
 	while (i < height)
 	{
 		p[i] = malloc(width * sizeof(int));
+		if (p[i] == NULL)
+		{
+			free_g(p, i+1);
+			return (NULL);
+		}
 		j = 0;
 		while (j < width)
 		{
