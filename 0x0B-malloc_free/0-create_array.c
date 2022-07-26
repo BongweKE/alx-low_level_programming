@@ -23,6 +23,7 @@ char *create_array(unsigned int size, char c)
 	if (a == NULL)
 	{
 		printf("Can't allocate %ld bytes", size * sizeof(char));
+		return (NULL);
 	}
 	i = 0;
 	while (i < size)
