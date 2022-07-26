@@ -53,16 +53,15 @@ char *_strdup(char *str)
 }
 
 /**
- * str_concat - concatenate two strings using malloc
- * @s1: first one
- * @s2: second one
+ * precheck - deal with concatenations involving null strings
+ * @s1: first string
+ * @s2: Second string
  *
- * Return: Pointer to location of concatenated string or Null
+ * Return: A pointer to the result of concatenation
  */
-char *str_concat(char *s1, char *s2)
+char *precheck(char *s1, char *s2)
 {
 	char *p;
-	int size1, size2, s, i;
 
 	/* eliminate extremes */
 	if (s1 == NULL)
@@ -81,9 +80,27 @@ char *str_concat(char *s1, char *s2)
 	{
 		/* only s1 has something */
 		p = _strdup(s1);
-		return (p);
 	}
+	return (p);
+}
 
+/**
+ * str_concat - concatenate two strings using malloc
+ * @s1: first one
+ * @s2: second one
+ *
+ * Return: Pointer to location of concatenated string or Null
+ */
+char *str_concat(char *s1, char *s2)
+{
+	char *p;
+	int size1, size2, s, i;
+
+	/* finish up early if there are null strings */
+	if (s1 == NULL || s2 == NULL)
+	{
+		return (precheck(s1, s2));
+	}
 	/* here everything has a value */
 	size1 = (sizeof(char) * _strlen(s1));
 	size2 = (sizeof(char) * _strlen(s2));
