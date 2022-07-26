@@ -9,7 +9,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i, j, **p, *a;
+	int i, j, **p, *a, f;
 
 	/* improbable width or height */
 	if (width <= 0 || height <= 0)
@@ -17,12 +17,15 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 	a = malloc(width * sizeof(int));
-	/* somehow that + 1 sizeof(int) is needed idk y*/
-	p = malloc((height * sizeof(a)) + sizeof(int));
+	/* somehow that + 2 * sizeof(int) is needed idk y*/
+	p = malloc((height * sizeof(a)) + (sizeof(int) * 2) );
+	free(a);
 
-	if (p == NULL || a == NULL)
+	/*use f to track need for freed */
+	f = 0;
+	if (p == NULL)
 	{
-		free(a);
+		f = 1;
 		free(p);
 		printf("Cannot can\n");
 		return (NULL);
@@ -32,6 +35,11 @@ int **alloc_grid(int width, int height)
 	while (i < height)
 	{
 		p[i] = malloc(width * sizeof(int));
+		if (p[i] == NULL)
+		{
+			f = 1;
+			break;
+		}
 		j = 0;
 		while (j < width)
 		{
@@ -39,6 +47,13 @@ int **alloc_grid(int width, int height)
 			j++;
 		}
 		i++;
+	}
+
+	/*check for need to free */
+	if (f)
+	{
+		free(p);
+		return (NULL);
 	}
 
 	return (p);
