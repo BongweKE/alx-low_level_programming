@@ -69,7 +69,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		if (s2 == NULL)
 		{
-			p = "";
+			p[0] = '\0';
 			return (p);
 		}
 		/* s1 null, s2 has something */
