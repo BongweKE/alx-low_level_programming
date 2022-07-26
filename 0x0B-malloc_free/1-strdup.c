@@ -10,6 +10,7 @@ char *_strdup(char *str)
 {
 	unsigned int i;
 	char *p;
+
 	if (str == NULL)
 	{
 		printf("Given string is NULL\n");
@@ -27,6 +28,5 @@ char *_strdup(char *str)
 		p[i] = str[i];
 		i++;
 	}
-	
 	return (p);
 }
