@@ -1,6 +1,27 @@
 #include "main.h"
 
 /**
+ * _strlen - count the length of a string
+ * @s: the string that we want to know the length of
+ *
+ * Return: The length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (i < INT_MAX)
+	{
+		if (s[i] == '\0')
+		{
+			break;
+		}
+		i++;
+	}
+	return (i);
+}
+
+/**
  * _strdup - creates a copy of a given str in memory
  * @str: given string
  *
@@ -8,22 +29,22 @@
  */
 char *_strdup(char *str)
 {
-	unsigned int i;
+	int i, s;
 	char *p;
 
 	if (str == NULL)
 	{
-		printf("Given string is NULL\n");
 		return (NULL);
 	}
-	p = malloc(sizeof(str) + 1);
+	s = sizeof(char) * _strlen(str);
+	p = malloc(s);
 	if (p == NULL)
 	{
-		printf("Can't make string of size %lu\n", sizeof(str));
+		printf("Can't make string of size %d\n", s);
 		return (NULL);
 	}
 	i = 0;
-	while (i <= sizeof(str))
+	while (i <= _strlen(str))
 	{
 		p[i] = str[i];
 		i++;
