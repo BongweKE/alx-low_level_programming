@@ -1,7 +1,11 @@
 #include "main.h"
 
 /**
+ * alloc_grid - allocate memory to a 2d matrix
+ * @width: the width of the matrix
+ * @height: the number of sub-arrays within the matrix
  *
+ * Return: pointer to location of our 2d matrix
  */
 int **alloc_grid(int width, int height)
 {
