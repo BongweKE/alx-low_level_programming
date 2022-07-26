@@ -9,16 +9,16 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i, j, **p, *a;
+	int i, j, **p;
 
 	/* improbable width or height */
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}	/* somehow that + 2 * sizeof(int) is needed idk y*/
-	a = malloc(width * sizeof(int));
-	p = malloc((height * sizeof(a)));
-	free(a);
+
+	p = malloc(height * width * sizeof(int));
+
 	if (p == NULL)
 	{
 		free(p);
