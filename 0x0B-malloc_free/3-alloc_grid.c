@@ -7,12 +7,19 @@ int **alloc_grid(int width, int height)
 {
 	int i, j, **p, *a;
 
-
+	if (width == 0 || height == 0)
+	{
+		printf("Hakuna kitu ka hio\n");
+		return (NULL);
+	}
 	a = malloc(width * sizeof(int));
-	p = malloc(height * sizeof(a));
+	/* somehow that + 1 sizeof(int) is needed idk y*/
+	p = malloc((height * sizeof(a)) + sizeof(int));
 
 	if (p == NULL || a == NULL)
 	{
+		free(a);
+		free(p);
 		printf("Cannot can\n");
 		return (NULL);
 	}
