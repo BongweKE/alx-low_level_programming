@@ -12,7 +12,7 @@ int recursive_change(int cents, int *options)
 {
 	int coins = 0;
 
-	if (cents == 0)
+	if (cents <= 0)
 	{
 		return (0);
 	}
