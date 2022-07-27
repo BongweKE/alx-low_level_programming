@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 			if (is_a_digit == 0)
 			{
 				printf("Error\n");
-				return(1);
+				return (1);
 			}
 			i++;
 		}
