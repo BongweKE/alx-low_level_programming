@@ -25,6 +25,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 
 	i = 0;
+	/* i dont know why it needs nmemb* size */
 	while (i < nmemb * size)
 	{
 		c[i] = 0;
