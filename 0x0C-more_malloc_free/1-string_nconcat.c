@@ -87,25 +87,25 @@ char *precheck(char *s1, char *s2, unsigned int n)
 }
 
 /**
- * str_concat - concatenate two strings using malloc
+ * string_nconcat - concatenate two strings using malloc with
+ * a limit set for the second string
  * @s1: first one
  * @s2: second one
+ * @n: limit
  *
  * Return: Pointer to location of concatenated string or Null
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *p;
-	unsigned int size1, size2, s, i;
-	unsigned int l2;
+	unsigned int size1, size2, s, i, l2;
 
 	/* finish up early if there are null strings */
 	if (s1 == NULL || s2 == NULL)
-	{
 		return (precheck(s1, s2, n));
-	}/* from here on everything has a value */
-	/* reduce size of s2 only if it's more than n */
-	l2 = n;
+	/* from here on everything has a value */
+
+	l2 = n;/* reduce size of s2 only if it's more than n */
 	if (_strlen(s2) <= n)
 	{
 		l2 = _strlen(s2);
@@ -118,14 +118,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		printf("Can't make string size %d\n", s);
 		return (NULL);
-	}/* now concatenate but use l2 */
+	} /* now concatenate but use l2 */
 
 	i = 0;
 	while (i <= (_strlen(s1) + l2))
 	{
-		/* when done with s1 */
 		if (i >= _strlen(s1))
-		{
+		{/* when done with s1 */
 			/* add vals of s2 */
 			p[i] = s2[i - _strlen(s1)];
 		}
