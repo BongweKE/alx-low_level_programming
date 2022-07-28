@@ -9,10 +9,16 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	if (malloc(b) == NULL)
+	/* void to ensure we are not specific */
+	void *s;
+
+	s = malloc(b);
+	/* malloc fail check */
+	if (s == NULL)
 	{
+		free(s);
 		exit(98);
-		return (NULL);
 	}
-	return (malloc(b));
+	/* no segf, go ahead */
+	return (s);
 }
