@@ -4,7 +4,7 @@
 /**
  * main - print the file it was compiled from
  *
- * return: SUCCESS
+ * Return: SUCCESS
  */
 int main(void)
 {
