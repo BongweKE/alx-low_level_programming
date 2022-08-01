@@ -19,8 +19,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	#define D_NAME (name);
-	#define D_OWNER  (owner);
+	#define D_NAME (name)
+	#define D_OWNER  (owner)
 
 	d->owner = D_OWNER;
 	d->age = age;
