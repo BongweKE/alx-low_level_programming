@@ -2,6 +2,28 @@
 #include "dog.h"
 
 /**
+ * _strcpy - copies a pointed string
+ *
+ * @dest: pointer to the destine string
+ * @src: pointer to the source string
+ *
+ * Return: the adress of the destiny string
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int a = 0;
+
+	while (src[a] != '\0')
+	{
+		dest[a] = src[a];
+		a++;
+	}
+
+	dest[a] = '\0';
+	return (dest);
+}
+
+/**
  * new_dog - use dog struct to create a conceptualization
  * @name: dog's name
  * @age: in dog years
@@ -25,7 +47,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	d->owner = owner;
+	d->owner = _strcpy(d->owner, owner);
 
 	d->age = age;
 
@@ -34,7 +56,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	d->name = name;
+	d->name = _strcpy(d->name, name);
 
 	return (d);
 }
