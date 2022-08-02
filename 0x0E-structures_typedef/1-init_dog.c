@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "dog.h"
 
 /**
@@ -8,12 +9,18 @@
  * @age: in dog years
  * @owner: human dog friend
  *
+ * Return: void
+ *
  * Description: Parse in an address and the details and get a
  * dog struct as a result
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	d->name = name;
+	if (d == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
+	(*d).name = name;
 	d->age = age;
 	d->owner = owner;
 }
