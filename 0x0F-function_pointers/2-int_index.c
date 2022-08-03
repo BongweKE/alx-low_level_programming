@@ -17,7 +17,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	/* NULL checks */
 	if (cmp == NULL || array == NULL)
 	{
-		exit(EXIT_FAILURE);
+		return(-1);
 	}
 	if (size <= 0)
 	{
