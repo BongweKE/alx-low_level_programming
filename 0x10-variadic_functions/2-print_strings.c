@@ -2,18 +2,13 @@
 #include <stdio.h>
 
 /**
- * print_numbers - print all the arguments if they are numbers
+ * print_strings - print all the arguments if they are strings
  * @separator: used to separate the printed arguments
  * @n: the number of arguments
  *
- * Known errors:
- * - I use printf
- * - no Null checks for args
- * - check if it's not a string
- *
  * Return: sum of arguments
  */
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list x;
 	unsigned int i;
@@ -28,7 +23,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	i = 0;
 	while (i < n)
 	{
-		printf("%d",  va_arg(x, int));
+		printf("%s",  va_arg(x, char *));
 		if (i < n - 1)
 		{
 			printf("%s ", separator);
