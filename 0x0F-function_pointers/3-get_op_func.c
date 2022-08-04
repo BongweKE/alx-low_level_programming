@@ -6,8 +6,8 @@
  * get_op_func - select the correct function to perform the operation
  * once given the char (either + - * / %)
  * @s: the sign of operation
- * @a: first num
- * @b: second num
+ *
+ * Return: pointer to actionable function
  */
 int (*get_op_func(char *s))(int, int)
 {
