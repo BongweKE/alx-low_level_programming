@@ -32,6 +32,17 @@ int (*get_op_func(char *s))(int, int)
 		}
 		i++;
 	}
-	/* anuthing that reaches here has a problem somewhere */
-	return (NULL);
+	/**
+	 * anything that reaches here has a problem somewhere
+	 * it could be NULL of have a wrong operator
+	 * check for NULL operator then for the rest,
+	 * exit with error code 99
+	 */
+	if (s != NULL)
+	{
+		/* not one of the expected operators */
+		printf("Error\n");
+		exit(99);
+	}
+	return(NULL);
 }

@@ -16,7 +16,8 @@ int main(int ac, char **av)
 	/* check for the number of arguments */
 	if (ac != 4)
 	{
-		exit(EXIT_FAILURE);
+		printf("Error\n");
+		exit(98);
 	}
 
 	/* convert to integers */
