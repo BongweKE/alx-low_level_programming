@@ -1,7 +1,7 @@
 #include "3-calc.h"
 
-#include <string.h>
-#include <stdio.h>
+
+
 /**
  * get_op_func - select the correct function to perform the operation
  * once given the char (either + - * / %)
@@ -36,13 +36,8 @@ int (*get_op_func(char *s))(int, int)
 	 * anything that reaches here has a problem somewhere
 	 * it could be NULL of have a wrong operator
 	 * check for NULL operator then for the rest,
-	 * exit with error code 99
+	 * exit with error code 99 on the function which gets
+	 * null result
 	 */
-	if (s != NULL)
-	{
-		/* not one of the expected operators */
-		printf("Error\n");
-		exit(99);
-	}
 	return(NULL);
 }

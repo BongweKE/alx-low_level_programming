@@ -28,7 +28,7 @@ int main(int ac, char **av)
 	if (get_op_func(av[2]) == NULL)
 	{
 		printf("Error\n");
-		exit(EXIT_FAILURE);
+		exit(99);
 	}
 
 	/* everything seems okay, go ahead */
