@@ -39,5 +39,5 @@ int (*get_op_func(char *s))(int, int)
 	 * exit with error code 99 on the function which gets
 	 * null result
 	 */
-	return(NULL);
+	return (NULL);
 }
