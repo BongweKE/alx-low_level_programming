@@ -8,6 +8,7 @@
 /**
  * print_args - print given variadic arguments given type specifiers
  * @args: all the ... arguments
+ * @format: the string of suspect specifiers
  *
  * Return: nothing
  * Description:
@@ -25,7 +26,6 @@ void print_args(const char * const format, va_list args)
 	size_t i = 0;
 	int j;
 	char *s, *t;
-
 	const char specifiers[] = "cifs";
 
 	while (i  < strlen(format))
@@ -44,8 +44,7 @@ void print_args(const char * const format, va_list args)
 					break;
 				case 's':
 					s = va_arg(args, char *);
-					/* NULL_S does every thing */
-					t = NULL_S(s);
+					t = NULL_S(s);/* refer to definition */
 					printf("%s", t);
 					break;
 				case 'i':
@@ -54,24 +53,26 @@ void print_args(const char * const format, va_list args)
 				case 'f':
 					printf("%f", va_arg(args, double));
 					break;
-				default:
-					printf("Impossible to happen");
 				}
 				/* use to print styler */
-			        (i == (strlen(format) - 1) ?
+				(i == (strlen(format) - 1) ?
 				 printf("\n") : printf(", "));
-			}
-			/**
-			 * Here we catch ... which != specifiers
-			 * removed it since it's not very important for now
-			 * t = NO_MATCH(format[i], specifiers[j]);
-			 * ((t) == (NULL) ? printf(" ") : printf("%s\n", t));
-			 */
+			} /* here is where we catch errors */
 			j++;
 		}
 		i++;
 	}
 }
+/*
+ * Here we catch suspect identifiers which != any specifiers
+ * removed it since it's not very important for now
+ * test it where we have a comment before j++
+ * also you might have to uncomment NO_MATCH definition
+ * which is at the top of the page
+ * t = NO_MATCH(format[i], specifiers[j]);
+ * ((t) == (NULL) ? printf(" ") : printf("%s\n", t));
+ */
+
 
 /**
  * print_all - prints anything
