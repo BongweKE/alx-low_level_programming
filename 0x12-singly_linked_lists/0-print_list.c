@@ -17,7 +17,14 @@
 size_t recursor_print_list(const list_t *c, int node_count)
 {
 	if (c != NULL)
+	{
 		node_count++;
+	}
+	else
+	{
+		return (node_count);
+	}
+	
 	if (c->str != NULL)
 	{
 		printf("[%u] %s\n", c->len, c->str);
