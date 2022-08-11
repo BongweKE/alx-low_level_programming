@@ -19,6 +19,10 @@ size_t recursor_list_len(const list_t *c, int node_count)
 	{
 		node_count++;
 	}
+	else
+	{
+		return(node_count);
+	}
 
 	if (c->next == NULL)
 	{
