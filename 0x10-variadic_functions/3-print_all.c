@@ -53,11 +53,11 @@ void print_args(const char * const format, va_list args)
 				case 'f':
 					printf("%f", va_arg(args, double));
 					break;
-				}
-				/* use to print styler */
+				} /* use to print styler */
 				(i == (strlen(format) - 1) ?
 				 printf("\n") : printf(", "));
 			} /* here is where we catch errors */
+			/* find a way to detect NULLS here */
 			j++;
 		}
 		i++;
