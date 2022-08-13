@@ -39,7 +39,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_head == NULL || s == NULL) /* check strdup and malloc */
 	{
 		free(new_head);
-		return (-1);
+		return (NULL);
 	}
 	new_head->str = s;
 	new_head->len = _strlen(s);
