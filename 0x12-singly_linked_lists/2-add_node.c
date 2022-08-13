@@ -53,7 +53,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (head == NULL)
 	{
-		printf("Major Alert!\n");
+		printf("Major Malloc Alert!\n");
 		return (NULL);
 	}
 
