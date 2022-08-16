@@ -89,6 +89,14 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *current, *new_node;
+	unsigned int node_count = (unsigned int)
+		listint_len((const listint_t *)*head);
+
+	/* check to see if it exists */
+	if (*head == NULL || idx > node_count)
+	{
+		return (NULL);
+	}
 
 	/* get the node before the given index */
 	current = get_nodeint_at_index(*head, idx - 1);
