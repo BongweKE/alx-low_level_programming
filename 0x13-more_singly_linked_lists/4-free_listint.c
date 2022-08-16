@@ -95,17 +95,11 @@ void free_listint(listint_t *head)
 
 	if (head == NULL)
 	{
-		printf("Erroneous\n");
-		free(head);
 		return;
 	}
 
 	while (free_last_node(head, node_count) > 0)
 	{
 		node_count--;
-	}
-	if (head == NULL)
-	{
-		printf("Not here\n");
 	}
 }
