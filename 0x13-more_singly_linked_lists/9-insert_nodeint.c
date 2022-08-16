@@ -1,13 +1,45 @@
 #include "lists.h"
 
 /**
- * recursive_count - count nodes in a linked list using recursion
+ * add_nodeint - add a node to the start of our linked list
+ * @head: the current first node
+ * @n: the value to be added to the new node created
+ *
+ * Return: the address of the new head or NULL
+ */
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new_head;
+
+	new_head = malloc(sizeof(listint_t));
+	if (new_head == NULL)
+	{
+		free(new_head);
+		return (NULL);
+	}
+	new_head->n = n;
+	new_head->next = *head;
+
+	if (head == NULL)
+	{
+		head = malloc(sizeof(listint_t));
+		if (head == NULL)
+		{
+			return (NULL);
+		}
+	}
+	*head = new_head;
+	return (*head);
+}
+
+/**
+ * new_listint_len - count nodes in a linked list using recursion
  * @c: current node
  * @node_count: count of nodes in our linked list
  *
  * Return: The number of nodes in our linked list
  */
-size_t recursive_count(const listint_t *c, int node_count)
+size_t new_listint_len(const listint_t *c, int node_count)
 {
 	if (c == NULL)
 	{
@@ -22,21 +54,7 @@ size_t recursive_count(const listint_t *c, int node_count)
 	{
 		return (node_count);
 	}
-	return (recursive_count(c->next, node_count));
-}
-
-/**
- * listint_len - call a recursive function to compute the
- * length of our recursive function
- * @h: the address of out head node
- *
- * Return: length of the linked list
- */
-size_t listint_len(const listint_t *h)
-{
-	int node_count = 0;
-
-	return (recursive_count(h, node_count));
+	return (new_listint_len(c->next, node_count));
 }
 
 /**
@@ -50,7 +68,7 @@ size_t listint_len(const listint_t *h)
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	unsigned int i, node_count = (unsigned int)
-		listint_len((const listint_t *)head);
+		new_listint_len((const listint_t *)head, 0);
 	listint_t *current;
 
 	node_count -= 1; /* due to starting with 0 */
@@ -85,17 +103,30 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
  * @n: value of the new node
  *
  * Return: address of new node or NULL
+ * Description: first check to see if it's possible
+ * LOGIC if we have three items,
+ * we can only insert at position 1 which is less than count - 1
+ * this leaves us with two edge cases:
+ * idx = 0 and insert at the end
+ * after consideration, it's possible that inserting at the end naturally
+ * gives us NULL value by inheriting current->next
+ * this means that we can just dweet without idx >= count - 1 and
+ * instead only check for idx >= count for NULL exits
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *current, *new_node;
 	unsigned int node_count = (unsigned int)
-		listint_len((const listint_t *)*head);
+		new_listint_len((const listint_t *)*head, 0);
 
-	/* check to see if it exists */
-	if (*head == NULL || idx > node_count)
+	if (*head == NULL || idx >= node_count)
 	{
 		return (NULL);
+	}
+	/* if we want to add at the start */
+	if (idx == 0)
+	{
+		return (add_nodeint(head, n));
 	}
 
 	/* get the node before the given index */
@@ -116,6 +147,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	/* first point to the current next node */
 	new_node->n = n;
+	/* is it possible it naturally inherits NULL*/
 	new_node->next = current->next;
 
 	/* then intercept the current next */
