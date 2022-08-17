@@ -123,5 +123,4 @@ void free_listint2(listint_t **head)
 		printf("Freed!\n");
 		exit(EXIT_SUCCESS);
 	}
-	return;
 }
