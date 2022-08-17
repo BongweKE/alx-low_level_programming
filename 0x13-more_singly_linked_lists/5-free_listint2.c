@@ -113,14 +113,11 @@ void free_listint(listint_t *head)
  */
 void free_listint2(listint_t **head)
 {
-	if (*head != NULL)
-	{
-		free_listint(*head);
-		*head = NULL;
-	}
-	else
+	if (head == NULL || *head == NULL)
 	{
 		printf("Freed!\n");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
+	free_listint(*head);
+	*head = NULL;
 }
