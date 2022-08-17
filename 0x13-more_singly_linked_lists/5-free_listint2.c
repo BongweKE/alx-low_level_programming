@@ -115,7 +115,6 @@ void free_listint2(listint_t **head)
 {
 	if (head == NULL || *head == NULL)
 	{
-		printf("Freed!\n");
 		exit(EXIT_FAILURE);
 	}
 	free_listint(*head);
