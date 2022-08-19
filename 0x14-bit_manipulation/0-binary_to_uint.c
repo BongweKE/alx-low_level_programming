@@ -10,10 +10,11 @@
 unsigned int power(int x, int pow)
 {
 	unsigned int result = 1;
+
 	while (pow > 0)
 	{
 		result = x * result;
-		pow --;
+		pow--;
 	}
 	return (result);
 }
