@@ -1,9 +1,8 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * print_binary - print out a binary given the base 10 value
- * without using arrays, malloc, % or /
+ * without using arrays, malloc, mod or divide
  * @n: base 10 value
  *
  * Return: void
@@ -25,7 +24,6 @@ void print_binary(unsigned long int n)
 		/* than or equal to our decimal */
 		limit *= 2;
 	}
-	printf("limit: %lu, n: %lu\n", limit, n);
 
 	if (limit > n)
 	{
