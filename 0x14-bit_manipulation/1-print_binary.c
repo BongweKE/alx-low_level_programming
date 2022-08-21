@@ -29,7 +29,7 @@ void print_binary(unsigned long int n)
 
 	if (limit > n)
 	{
-		limit /= 2;
+		limit *= 0.5;
 	}
 
 	while (limit > 0)
@@ -39,7 +39,7 @@ void print_binary(unsigned long int n)
 		if (limit > n)
 		{
 			_putchar('0');
-			limit /= 2;
+			limit *= 0.5;
 		}
 		else
 		{
@@ -47,7 +47,7 @@ void print_binary(unsigned long int n)
 			/* printf("\t-limit: %ld\n", limit); */
 			n -= limit;
 			_putchar('1');
-			limit /= 2;
+			limit *= 0.5;
 		}
 	}
 }
