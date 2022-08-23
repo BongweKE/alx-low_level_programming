@@ -47,7 +47,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buf = malloc(sizeof(char) * letters);
 	if (buf == NULL)
 	{
-		close (fd);
+		close(fd);
 		return (0);
 	}
 	bytz = read(fd, buf, letters);
