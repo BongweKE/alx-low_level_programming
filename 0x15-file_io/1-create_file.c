@@ -38,13 +38,15 @@ int _strlen(char *s)
  * if file already exists, truncate it
  *
  * Methodology
- * check for error 1 and 2
+ * check for error 1
  * find strlen to use in write operation
- * also create buf using the strlen
- * open with 0600 mode or don't change and
+ * check if it exists
  * set to truncate if the file exits already
- * check for failure to read
+ * else open using O_CREAT with 0600 mode and check if it worked
+ * Check for empty content and create an empty file by exiting
+ *
  * using the current settings, write as required
+ * use strlen and text_content
  * check for write failure
  *
  */
@@ -61,11 +63,11 @@ int create_file(const char *filename, char *text_content)
 
 	l = _strlen(text_content);
 
-	fd = open(filename, O_RDWR | O_TRUNC);
+	fd = open(filename, O_WRONLY | O_TRUNC);
 	if (fd == -1)
 	{
 		/* to avoid changing permissions */
-		fd = open(filename, O_CREAT, 00600);
+		fd = open(filename, O_CREAT | O_WRONLY, 00600);
 		if (fd == -1)
 		{
 			return (-1);
