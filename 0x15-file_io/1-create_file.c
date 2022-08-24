@@ -61,10 +61,15 @@ int create_file(const char *filename, char *text_content)
 
 	l = _strlen(text_content);
 
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 00600);
+	fd = open(filename, O_RDWR | O_TRUNC);
 	if (fd == -1)
 	{
-		return (-1);
+		/* to avoid changing permissions */
+		fd = open(filename, O_CREAT, 00600);
+		if (fd == -1)
+		{
+			return (-1);
+		}
 	}
 
 	if (text_content == NULL)
