@@ -67,6 +67,7 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 	{
 		/* to avoid changing permissions */
+		/* now create if it didn't exist */
 		fd = open(filename, O_CREAT | O_WRONLY, 00600);
 		if (fd == -1)
 		{
@@ -76,17 +77,18 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content == NULL)
 	{
-		close(fd);
-		return (0);
+		w = write(fd, "", 0);
+	}
+	else
+	{
+		w = write(fd, text_content, (size_t)l);
 	}
 
-	w = write(fd, text_content, (size_t)l);
+	close(fd);/* put it here to avoid repetition */
 	if (w == -1)
 	{
-		close(fd);
 		return (-1);
 	}
 
-	close(fd);
 	return (1);
 }
