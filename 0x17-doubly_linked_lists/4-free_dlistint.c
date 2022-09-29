@@ -15,11 +15,9 @@ void free_dlistint(dlistint_t *head)
 	{
 		head = head->next;
 
-		printf("-%d-\n", head->prev->n);
 		free(head->prev);
 	}
 
-	printf("-%d-\n", head->n);
 	free(head);
 	head = NULL;
 }
