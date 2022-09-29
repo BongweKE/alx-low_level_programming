@@ -32,4 +32,6 @@ void free_dlistint(dlistint_t *head);
 
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 
+int sum_dlistint(dlistint_t *head);
+
 #endif
