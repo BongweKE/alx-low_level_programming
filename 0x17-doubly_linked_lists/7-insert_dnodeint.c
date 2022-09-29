@@ -62,7 +62,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
  * Index starts at 0
  * @n: value of new node to be added
  *
- * Returns: the address of the new node, or NULL if it failed
+ * Return: the address of the new node, or NULL if it failed
  *
  * Description: if it is not possible to add the new node at index idx,
  * do not add the new node and return NULL
@@ -73,14 +73,14 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	size_t len;
 
 	if (*h == NULL || idx == 0)
-		return add_dnodeint(h, n);
+		return (add_dnodeint(h, n));
 
 	len = dlistint_len(*h);
 	if (idx == len)
-		return add_dnodeint_end(h, n);
+		return (add_dnodeint_end(h, n));
 
 	if (idx > len)
-		return NULL;
+		return (NULL);
 
 	current = malloc(sizeof(dlistint_t *));
 	new_node = malloc(sizeof(dlistint_t *));
@@ -90,7 +90,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		exit(EXIT_FAILURE);
 	}
 
-	current = get_dnodeint_at_index(*h, idx-1);
+	current = get_dnodeint_at_index(*h, idx - 1);
 	new_node->n = n;
 	new_node->next = NULL;
 	new_node->prev = current;
