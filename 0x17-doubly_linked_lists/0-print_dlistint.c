@@ -12,13 +12,6 @@ size_t print_dlistint(const dlistint_t *h)
 	dlistint_t *current;
 	size_t i;
 
-	current = malloc(sizeof(dlistint_t *));
-	if (current == NULL)
-	{
-		free(current);
-		exit(EXIT_FAILURE);
-	}
-
 	current = (dlistint_t *)h;
 
 	i = 0;
