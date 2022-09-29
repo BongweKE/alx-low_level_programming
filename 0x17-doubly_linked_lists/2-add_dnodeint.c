@@ -16,7 +16,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	if (new_node == NULL)
 	{
 		free(new_node);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 
 	/* populate the new node */
@@ -33,7 +33,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 		{
 			free(head);
 			free(new_node);
-			exit(EXIT_FAILURE);
+			return (NULL);
 		}
 
 		*head = new_node;
