@@ -1,0 +1,17 @@
+CC = gcc
+SRC := main.c school.c
+OBJ = ${subst .c,.o,$(SRC)}
+NAME = school
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Note: PHONY is important here. Without it, implicit rules will try to build the executable "all", since the prereqs are ".o" files.
+.PHONY: all
+
+# use this to create obbj files if need be
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f $(OBJ)
